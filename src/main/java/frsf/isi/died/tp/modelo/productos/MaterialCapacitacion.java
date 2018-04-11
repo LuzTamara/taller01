@@ -12,7 +12,11 @@ import frsf.isi.died.tp.util.Ordenable;
 /**
  * Representa de manera abstracta los materiales de capacitación
  * 
- * @author mdominguez
+ * @author LuzTamara
+ * 
+ * Integrantes: Franco Brechbuhl, Tamara Luz
+ * 
+ * 
  */
 public abstract class MaterialCapacitacion {
 	protected Integer id;
@@ -56,11 +60,6 @@ public abstract class MaterialCapacitacion {
 		this.titulo = titulo;
 		this.costo = costo;
 	}
-
-
-	//TODO 01 implementar los metodos getters y setters y escribir el javadoc
-	// AYUDA: para implementar estos metodos usar un atajo del IDE 
-	// elegir el menu "Source" --> "Generate getters y setters" y elegir alli que metodos generar.
 	
 
 	/**
@@ -71,6 +70,54 @@ public abstract class MaterialCapacitacion {
 	 */
 	public abstract Double precio();
 	
+	/**
+	 * Getter que devuelve el id
+	 * @return id
+	 */
+	public Integer getId() {
+		return id;
+	}
+
+	/**
+	 * Setter que modifica el valor del id
+	 * @param id
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	/**
+	 * Getter que devuelve el titulo
+	 * @return titulo
+	 */
+	public String getTitulo() {
+		return titulo;
+	}
+	
+	/**
+	 * Setter que modifica el valor del titulo
+	 * @param titulo
+	 */
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	/**
+	 * Getter que devuelve el costo
+	 * @return costo
+	 */
+	public Double getCosto() {
+		return costo;
+	}
+
+	/**
+	 * Setter que modifica el valor del costo
+	 * @param costo
+	 */
+	public void setCosto(Double costo) {
+		this.costo = costo;
+	}
+
 	/**
 	 * Retorna verdadero si es una instancia de libro, falso en caso contrario
 	 * @return
@@ -83,10 +130,15 @@ public abstract class MaterialCapacitacion {
 	 */
 	public abstract Boolean esVideo();
 	
-	//TODO 02: sobrescribir el metodo toString de la clase "Object"
-	//	el método toString retorna un string que representa el material actual
-	//  retornando el titulo, y el precio 	 * usando el formato : 
-	// [Titulo: <titulo> ; Precio: <precio> ]
+	
+	/**
+	 * Retorna un string que representa el material con el formato :
+	 * [Titulo: <titulo> ; Precio: <precio> ]
+	 */
+	public String toString() {
+		return ("Titulo: " + this.titulo + "; Precio: " + this.precio());
+				
+	}
 	
 	
 	// TODO 10: implementar Ordenable

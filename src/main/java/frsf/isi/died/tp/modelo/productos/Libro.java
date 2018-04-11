@@ -83,20 +83,24 @@ public class Libro extends MaterialCapacitacion {
 		this.paginas = paginas;
 	}
 
-	@Override
+	/**
+	 * Devuelve true al ser preguntado si es libro
+	 * @return true
+	 */
 	public Boolean esLibro() {
-		//TODO 03: implementar metodo abstracto
-		return null;
-	}
-
-	@Override
-	public Boolean esVideo() {
-		//TODO 04: implementar metodo abstracto
-		return null;
+		return true;
 	}
 
 	/**
-	 * El precio de un libro se calcula segun la siguiente formula
+	 * Devuelve false al ser preguntado si es video
+	 * @return false
+	 */
+	public Boolean esVideo() {
+		return false;
+	}
+
+	/**
+	 * Devuelve el precio de un libro calculado segun la siguiente formula
 	 * PRECIO = costo + (precio de compra * FACTOR_PAGINAS)
 	 * FACTOR_PAGINAS es un 3% cada 150 paginas.
 	 * 
@@ -105,11 +109,11 @@ public class Libro extends MaterialCapacitacion {
 	 * 
 	 * PRECIO = 50.0 + (100.0 * (1.0+ (0.03 * 460/150))); 
 	 * PRECIO = 50.0 + (100.0 * (1.0 + 0.09)) = 50.0 + 109.0 = 159.0
+	 * @return precio de un libro
 	 */
-	@Override
+	
 	public Double precio() {
-		//TODO 05: implementar metodo abstracto
-		return null;
+		return (this.getCosto() +(this.getPrecioCompra()*((1.0+(0.03* this.getPaginas()/150)))));
 	}
 
 	

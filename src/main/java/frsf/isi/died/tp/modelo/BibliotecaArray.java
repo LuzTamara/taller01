@@ -34,25 +34,37 @@ public class BibliotecaArray implements Biblioteca{
 		// TODO 13: inicializar la variable de tipo ListaService para que apunte el servicio de operaciones de listas		
 	}
 
-	@Override
+	/**
+	 * Agrega un material al arreglo de materiales de capacitacion si hay espacio en el arreglo
+	   caso contrario el metodo no agrega ningun elemento y termina su ejecucion
+
+	 */
 	public void agregar(MaterialCapacitacion material) {
-		// TODO 06: se agrega un material al arreglo de materiales de capacitacion si hay espacio en el arreglo
-		// caso contrario el metodo no agrega ningun elemento y termina su ejecución
+		if(cantidadMaterial < 10) {
+			materialCapacitacion[cantidadMaterial] = material;
+			cantidadMaterial++;
+		}
 		
 	}
 
-	@Override
+	/**
+	 * Retorna la cantidad de materiales existentes en la biblioteca
+	 * @return cantidad material
+	 */
 	public Integer cantidadMateriales() {
-		// TODO 07: retorna la cantidad de materiales que hay ingresados en el sistema
-		return null;
+		return cantidadMaterial;
 	}
 
 
 
-	@Override
+	/**Retorna la cantidad de libros registrados en el sistema.
+	 * @return cantidad libros
+	 */
 	public Integer cantidadLibros() {
-		// TODO 08: retorna la cantidad de libros registrados en el sistema.
-		// No se puede usar para este método el operador "instanceOf" ni realizar ningun tipo de casting. 
+		Integer cant = 0;
+		for(MaterialCapacitacion mat: materialCapacitacion) {
+			//TODO 08: terminar bucle
+		}
 		return null;
 	}
 
