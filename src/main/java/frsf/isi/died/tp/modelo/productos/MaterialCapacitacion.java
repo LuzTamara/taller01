@@ -18,7 +18,7 @@ import frsf.isi.died.tp.util.Ordenable;
  * 
  * 
  */
-public abstract class MaterialCapacitacion {
+public abstract class MaterialCapacitacion implements Ordenable {
 	protected Integer id;
 	/**
 	 * Titulo del material
@@ -140,7 +140,20 @@ public abstract class MaterialCapacitacion {
 				
 	}
 	
-	
-	// TODO 10: implementar Ordenable
+	/**
+	 * Retorna el resultado del método precio()
+	 * @return
+	 * 
+	 * Consideramos que el método funciona aunque esté técnicamente
+	 * invocando un método abstracto porque será enviado a alguna de
+	 * las clases hijas donde sí se encuentra implementado, por lo que
+	 * al usar la palabra clave this hacemos referencia a una de ellas
+	 * y la implementación se buscará en la clase correcta.
+	 */
+	public final int valor() {
+		return ((int) (double) this.precio());
+	}
 
+	
+	
 }

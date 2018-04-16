@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import frsf.isi.died.tp.modelo.productos.MaterialCapacitacion;
+//importamos tambien listaserviceradix para poder usar su metodo constructor
+import frsf.isi.died.tp.util.*;
 
 
 /**
@@ -25,13 +27,17 @@ public class BibliotecaArray implements Biblioteca{
 	 */
 	private Integer cantidadMaterial;
 	
-	// TODO 12: crear una variable de tipo ListaService que apuntará a una instancia del servicio de operaciones de lista
+	/**
+	 * variable de tipo ListaService que apunta a una instancia del servicio de operaciones de lista
+	 */
+	private ListasService ServicioOperaciones;
 
 	
 	public BibliotecaArray() {
 		cantidadMaterial=0;
 		this.materialCapacitacion= new MaterialCapacitacion[10];
-		// TODO 13: inicializar la variable de tipo ListaService para que apunte el servicio de operaciones de listas		
+		this.ServicioOperaciones = new ListaServiceRadix(materialCapacitacion);
+		
 	}
 
 	/**
@@ -63,29 +69,45 @@ public class BibliotecaArray implements Biblioteca{
 	public Integer cantidadLibros() {
 		Integer cant = 0;
 		for(MaterialCapacitacion mat: materialCapacitacion) {
-			//TODO 08: terminar bucle
+			if(mat != null) {
+				if(mat.esLibro())
+					cant++;
+			}
 		}
-		return null;
+		return cant;
 	}
 
 
 
-	@Override
+	/**Retorna la cantidad de videos registrados en el sistema.
+	 * @return cantidad videos
+	 */
 	public Integer cantidadVideos() {
-		// TODO 09: retorna la cantidad de videos registrados en el sistema. 
-		// No se puede usar para este método el operador "instanceOf" ni realizar ningun tipo de casting. 
-		return null;
+		Integer cant = 0;
+		for(MaterialCapacitacion mat: materialCapacitacion) {
+			if(mat != null) {
+				if(mat.esVideo())
+					cant++;
+			}
+		}
+		return cant;
 	}
 
-	@Override
-	public void imprimir() {		
-		//TODO 14: invocar al método imprimir de la variable de tipo ListaService para que imprima el arreglo 
+	/**
+	 * Invoca al metodo imprimir de la variable de tipo ListaService para que imprima el arreglo 
+	 */
+	public void imprimir() {
+		ServicioOperaciones.imprimir();
+	 
 	}
 		
 
-	@Override
+	/**
+	 * invoca al metodo ordenar de la variable de tipo ListaService para que ordene el arreglo 
+	 */
 	public void ordenarPorPrecio(Boolean b) {
-		// TODO 15: invocar al metodo ordenar de la variable de tipo ListaService para que ordene el arreglo 
+		if(b)
+		ServicioOperaciones.ordenar();
 	}
 
 

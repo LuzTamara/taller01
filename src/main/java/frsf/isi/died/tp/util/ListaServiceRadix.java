@@ -67,6 +67,18 @@ public class ListaServiceRadix extends ListasService {
 	private Ordenable[][] residuos = new Ordenable[10][10];
 	
 	/**
+	 * Atributo que indica la cifra del numero que se evalua para ordenar
+	 */
+	
+	private int cifraEvaluada;
+	
+	/**
+	 * Atributo que indica la posicion en el arreglo
+	 */
+	
+	private int posEnArray = 0;
+	
+	/**
 	 * Arreglo auxiliar que en cada iteracion nos indica la cantidad de elementos que hay en cada fila de la matriz residuos.
 	 * Se utiliza para no iterar y acceder fuera del rango del arreglo.
 	 */
@@ -79,17 +91,27 @@ public class ListaServiceRadix extends ListasService {
 	@Override
 	public void ordenar() {
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 3; i++) {
 			// calcular la base de la posicion actual
 			// para la unidad es 1, para la decena 10, para la centena 100
 			// asi el numero 237 se puede descomponer en 2*100 + 3*10 + 7* 1
 			int peso = (int) Math.pow(10.0, i);
-
-			for (Ordenable mat : this.arregloOrdenable) {
-				// TODO 11: IMPLEMENTAR el ALGORITMO que chequea el residuo 
-				// e inserta el elemento en la posicion de la matriz de residuos
-				// e incrementa el contador en cantidadPorFila en 1
-			}
+					
+			this.posEnArray = 0;
+		
+			for (Ordenable mat : this.arregloOrdenable) {	
+				if(mat != null) {
+					//calcular cual es la cifra por la cual se va a ordenar
+					this.cifraEvaluada = (((int)(this.arregloOrdenable[this.posEnArray].valor() / peso)) % 10);	
+					//buscar la fila de la matriz a la cual corresponde la cifra evaluada y asignarle el elemento Ordenable al cual pertenece la cifra
+					this.residuos[this.cifraEvaluada][this.cantidadPorFila[this.cifraEvaluada]] = this.arregloOrdenable[this.posEnArray];
+					//incrementar la cantidad de elementos que hay en la fila de la matriz que corresponde a la cifra evaluada 
+					this.cantidadPorFila[this.cifraEvaluada]++;
+					//incrementar la cifra para que se evalue con la siguiente (del 0 al 9)
+					this.posEnArray++;
+				}
+			}		
+			
 			int indiceArregloOrdenado = 0;
 			for (int j = 0; j < 10; j++) {
 				for (int k = 1; k <= cantidadPorFila[j]; k++) {
@@ -100,5 +122,7 @@ public class ListaServiceRadix extends ListasService {
 			}
 		}
 	}
+	
+	}
 
-}
+

@@ -5,7 +5,7 @@ package frsf.isi.died.tp.util;
  * @author mdominguez
  *
  */
-public abstract class ListasService {
+	public abstract class ListasService {
 	
 	/**
 	 * Puntero a un arreglo de elementos que son ordenables
@@ -16,6 +16,7 @@ public abstract class ListasService {
 		this.arregloOrdenable = arreglo;
 	}
 	
+
 	/**
 	 * Metodo que imprime el arreglo ordenable por consola
 	 */
