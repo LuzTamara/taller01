@@ -66,6 +66,19 @@ public class Video extends MaterialCapacitacion {
 		return (costo+(duracion*costoPorSegundo));
 	}
 
+	/**
+	 * Indica que dos objetos son iguales si son instancia de video y 
+	 * ademas se cumple equals implementado en MaterialCapacion
+	 * @returns boolean
+	 */
+	public boolean equals(Object obj) {
+		boolean retorno;
+		if(obj instanceof Video) {
+			 retorno = super.equals(obj);
+		}
+		else retorno = false;
+		return retorno;
+	}
 	
 	
 }

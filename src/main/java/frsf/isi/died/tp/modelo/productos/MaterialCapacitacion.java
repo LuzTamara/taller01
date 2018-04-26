@@ -154,6 +154,23 @@ public abstract class MaterialCapacitacion implements Ordenable {
 		return ((int) (double) this.precio());
 	}
 
-	
+	/**
+	 * Sobreescribe el metodo equals de la clase object.
+	 * Dos objetos son iguales si ambos son instancia de MaterialCapacitacion
+	 * y ademas tienen el mismo titulo, sin tener en cuenta diferencia entre mayusculas
+	 * y minusculas
+	 * @return boolean 
+	 */
+	public boolean equals(Object obj) {
+		boolean retorno;
+		if (obj instanceof MaterialCapacitacion){
+			if(this.getTitulo().equalsIgnoreCase(((MaterialCapacitacion) obj).getTitulo())) 
+				retorno = true;
+			else
+				retorno = false;
+		}
+		else retorno = false;
+		return retorno;
+	}
 	
 }

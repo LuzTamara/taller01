@@ -116,6 +116,18 @@ public class Libro extends MaterialCapacitacion {
 		return (this.getCosto() +(this.getPrecioCompra()*((1.0+(0.03* this.getPaginas()/150)))));
 	}
 
-	
+	/**
+	 * Indica que dos objetos son iguales si son instancia de libro y 
+	 * ademas se cumple equals implementado en MaterialCapacion
+	 * @returns boolean
+	 */
+	public boolean equals(Object obj) {
+		boolean retorno;
+		if(obj instanceof Libro) {
+			 retorno = super.equals(obj);
+		}
+		else retorno = false;
+		return retorno;
+	}
 
 }
