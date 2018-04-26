@@ -18,7 +18,7 @@ import frsf.isi.died.tp.util.Ordenable;
  * 
  * 
  */
-public abstract class MaterialCapacitacion implements Ordenable {
+public abstract class MaterialCapacitacion implements Ordenable, Comparable<MaterialCapacitacion>{
 	protected Integer id;
 	/**
 	 * Titulo del material
@@ -173,4 +173,27 @@ public abstract class MaterialCapacitacion implements Ordenable {
 		return retorno;
 	}
 	
+	/**
+	 *Compara por titulo. Si el titulo es el mismo compara con el precio 
+	 *obtenido con el metodo precio().
+	 */
+	public int compareTo(MaterialCapacitacion a) {
+		int retorno;
+		if(this.equals(a)) {
+			if(this.precio() > a.precio())
+				retorno = 1;
+			else if(this.precio() < a.precio())
+				retorno = -1;
+			else 
+				retorno = 0;
+		}
+		else {
+			if(this.getTitulo().compareTo(a.getTitulo()) > 1)
+				retorno = 1;
+			else 
+				retorno = -1;
+		}
+		return retorno;
+			
+	}
 }
