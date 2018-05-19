@@ -1,6 +1,5 @@
 package frsf.isi.died.tp.modelo;
 
-
 import java.util.Collection;
 import frsf.isi.died.tp.modelo.productos.MaterialCapacitacion;
 
@@ -53,8 +52,13 @@ public interface Biblioteca {
 	 * @param b
 	 */
 	public void ordenarPorPrecio(Boolean b);
-
 	
+	/** busca el primer material de capacitacion con el costo solicitado.
+	 * El precio solamente se compara con la parte entera, y se basa en el
+	 * atributo costo .
+	 * @return un MaterialCapacitacion
+	 */
 
+	public MaterialCapacitacion buscar(Integer costo);
 	
 }

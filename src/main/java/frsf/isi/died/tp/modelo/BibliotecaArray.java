@@ -115,7 +115,14 @@ public class BibliotecaArray implements Biblioteca{
 	public Collection<MaterialCapacitacion> materiales() {
 		return Arrays.asList(this.materialCapacitacion);
 	}
+	
+	/**Implementacion del metodo buscar de la interface
+	 * 
+	 */
+	@Override
+	public MaterialCapacitacion buscar(Integer precio) {
 
-
+	return null;
+	}
 
 }
