@@ -156,18 +156,7 @@ public abstract class MaterialCapacitacion implements Ordenable, Comparable<Mate
 	 * y minusculas
 	 * @return boolean 
 	 */
-	public boolean equals(Object obj) {
-		boolean retorno;
-		if (obj instanceof MaterialCapacitacion){
-			if(this.getTitulo().equalsIgnoreCase(((MaterialCapacitacion) obj).getTitulo())) 
-				retorno = true;
-			else
-				retorno = false;
-		}
-		else retorno = false;
-		return retorno;
-	}
-	
+
 	/**
 	 *Compara por titulo. Si el titulo es el mismo compara con el precio 
 	 *obtenido con el metodo precio().
@@ -190,5 +179,30 @@ public abstract class MaterialCapacitacion implements Ordenable, Comparable<Mate
 		}
 		return retorno;
 			
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MaterialCapacitacion other = (MaterialCapacitacion) obj;
+		if (titulo == null) {
+			if (other.titulo != null)
+				return false;
+		} else if (!titulo.equals(other.titulo))
+			return false;
+		return true;
 	}
 }
